@@ -28,13 +28,14 @@ if (HWINFO_BATTERY)
     target_link_libraries(hwinfo INTERFACE hwinfo_battery)
 
     set_target_properties(hwinfo_battery PROPERTIES OUTPUT_NAME "hwinfo_battery")
+    set_property(TARGET hwinfo_battery PROPERTY FOLDER "${KARMALIBRARYFOLDER}")
 
-    install(TARGETS hwinfo_battery
-            EXPORT lfreist-hwinfoTargets
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib
-            RUNTIME DESTINATION bin)
-    install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/battery.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    #install(TARGETS hwinfo_battery
+    #        EXPORT lfreist-hwinfoTargets
+    #        LIBRARY DESTINATION lib
+    #        ARCHIVE DESTINATION lib
+    #        RUNTIME DESTINATION bin)
+    #install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/battery.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
 endif ()
 # ______________________________________________________________________________________________________________________
 
@@ -60,13 +61,14 @@ if (HWINFO_CPU)
     target_link_libraries(hwinfo INTERFACE hwinfo_cpu)
 
     set_target_properties(hwinfo_cpu PROPERTIES OUTPUT_NAME "hwinfo_cpu")
+    set_property(TARGET hwinfo_cpu PROPERTY FOLDER "${KARMALIBRARYFOLDER}")
 
-    install(TARGETS hwinfo_cpu
-            EXPORT lfreist-hwinfoTargets
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib
-            RUNTIME DESTINATION bin)
-    install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/cpu.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    #install(TARGETS hwinfo_cpu
+    #        EXPORT lfreist-hwinfoTargets
+    #        LIBRARY DESTINATION lib
+    #        ARCHIVE DESTINATION lib
+    #        RUNTIME DESTINATION bin)
+    #install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/cpu.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
 endif()
 # ______________________________________________________________________________________________________________________
 
@@ -95,13 +97,14 @@ if (HWINFO_DISK)
     target_link_libraries(hwinfo INTERFACE hwinfo_disk)
 
     set_target_properties(hwinfo_disk PROPERTIES OUTPUT_NAME "hwinfo_disk")
+    set_property(TARGET hwinfo_disk PROPERTY FOLDER "${KARMALIBRARYFOLDER}")
 
-    install(TARGETS hwinfo_disk
-            EXPORT lfreist-hwinfoTargets
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib
-            RUNTIME DESTINATION bin)
-    install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/disk.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    #install(TARGETS hwinfo_disk
+    #        EXPORT lfreist-hwinfoTargets
+    #        LIBRARY DESTINATION lib
+    #        ARCHIVE DESTINATION lib
+    #        RUNTIME DESTINATION bin)
+    #install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/disk.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
 endif ()
 # ______________________________________________________________________________________________________________________
 
@@ -138,15 +141,16 @@ if (HWINFO_GPU)
     target_link_libraries(hwinfo INTERFACE hwinfo_gpu)
 
     set_target_properties(hwinfo_gpu PROPERTIES OUTPUT_NAME "hwinfo_gpu")
+    set_property(TARGET hwinfo_gpu PROPERTY FOLDER "${KARMALIBRARYFOLDER}")
 
-    install(TARGETS hwinfo_gpu
-            EXPORT lfreist-hwinfoTargets
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib
-            RUNTIME DESTINATION bin)
-    install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/gpu.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    #install(TARGETS hwinfo_gpu
+    #        EXPORT lfreist-hwinfoTargets
+    #        LIBRARY DESTINATION lib
+    #        ARCHIVE DESTINATION lib
+    #        RUNTIME DESTINATION bin)
+    #install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/gpu.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
     if(HWINFO_GPU_OPENCL)
-        install(DIRECTORY ${HWINFO_INCLUDE_DIR}/hwinfo/opencl DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    #    install(DIRECTORY ${HWINFO_INCLUDE_DIR}/hwinfo/opencl DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
     endif ()
 endif ()
 # ______________________________________________________________________________________________________________________
@@ -176,13 +180,14 @@ if (HWINFO_MAINBOARD)
     target_link_libraries(hwinfo INTERFACE hwinfo_mainboard)
 
     set_target_properties(hwinfo_mainboard PROPERTIES OUTPUT_NAME "hwinfo_mainboard")
+    set_property(TARGET hwinfo_mainboard PROPERTY FOLDER "${KARMALIBRARYFOLDER}")
 
-    install(TARGETS hwinfo_mainboard
-            EXPORT lfreist-hwinfoTargets
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib
-            RUNTIME DESTINATION bin)
-    install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/mainboard.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    #install(TARGETS hwinfo_mainboard
+    #        EXPORT lfreist-hwinfoTargets
+    #        LIBRARY DESTINATION lib
+    #        ARCHIVE DESTINATION lib
+    #        RUNTIME DESTINATION bin)
+    #install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/mainboard.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
 endif ()
 # ______________________________________________________________________________________________________________________
 
@@ -210,13 +215,14 @@ if (HWINFO_OS)
     target_link_libraries(hwinfo INTERFACE hwinfo_os)
 
     set_target_properties(hwinfo_os PROPERTIES OUTPUT_NAME "hwinfo_os")
+    set_property(TARGET hwinfo_os PROPERTY FOLDER "${KARMALIBRARYFOLDER}")
 
-    install(TARGETS hwinfo_os
-            EXPORT lfreist-hwinfoTargets
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib
-            RUNTIME DESTINATION bin)
-    install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/os.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    #install(TARGETS hwinfo_os
+    #        EXPORT lfreist-hwinfoTargets
+    #        LIBRARY DESTINATION lib
+    #        ARCHIVE DESTINATION lib
+    #        RUNTIME DESTINATION bin)
+    #install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/os.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
 endif ()
 # ______________________________________________________________________________________________________________________
 
@@ -242,14 +248,15 @@ if (HWINFO_RAM)
     target_link_libraries(hwinfo INTERFACE hwinfo_ram)
 
     set_target_properties(hwinfo_ram PROPERTIES OUTPUT_NAME "hwinfo_ram")
+    set_property(TARGET hwinfo_ram PROPERTY FOLDER "${KARMALIBRARYFOLDER}")
 
-    install(TARGETS hwinfo_ram
-            EXPORT lfreist-hwinfoTargets
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib
-            RUNTIME DESTINATION bin)
+    #install(TARGETS hwinfo_ram
+    #        EXPORT lfreist-hwinfoTargets
+    #        LIBRARY DESTINATION lib
+    #        ARCHIVE DESTINATION lib
+    #        RUNTIME DESTINATION bin)
 
-    install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/ram.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    # install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/ram.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
 endif ()
 # ______________________________________________________________________________________________________________________
 
@@ -277,21 +284,22 @@ if (HWINFO_NETWORK)
     target_link_libraries(hwinfo INTERFACE hwinfo_network)
 
     set_target_properties(hwinfo_network PROPERTIES OUTPUT_NAME "hwinfo_network")
+    set_property(TARGET hwinfo_network PROPERTY FOLDER "${KARMALIBRARYFOLDER}")
 
-    install(TARGETS hwinfo_network
-            EXPORT lfreist-hwinfoTargets
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib
-            RUNTIME DESTINATION bin)
-    install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/network.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+    #install(TARGETS hwinfo_network
+    #        EXPORT lfreist-hwinfoTargets
+    #        LIBRARY DESTINATION lib
+    #        ARCHIVE DESTINATION lib
+    #        RUNTIME DESTINATION bin)
+    #install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/network.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
 endif ()
 # ______________________________________________________________________________________________________________________
 
-install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/platform.h ${HWINFO_INCLUDE_DIR}/hwinfo/hwinfo.h  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
-install(DIRECTORY ${HWINFO_INCLUDE_DIR}/hwinfo/utils DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
-install(TARGETS hwinfo
-        EXPORT lfreist-hwinfoTargets
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib
-        RUNTIME DESTINATION bin
-)
+#install(FILES ${HWINFO_INCLUDE_DIR}/hwinfo/platform.h ${HWINFO_INCLUDE_DIR}/hwinfo/hwinfo.h  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+#install(DIRECTORY ${HWINFO_INCLUDE_DIR}/hwinfo/utils DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hwinfo)
+#install(TARGETS hwinfo
+#        EXPORT lfreist-hwinfoTargets
+#        LIBRARY DESTINATION lib
+#        ARCHIVE DESTINATION lib
+#        RUNTIME DESTINATION bin
+#)
