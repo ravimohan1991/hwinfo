@@ -70,16 +70,16 @@ configure_file(cmake/lfreist-hwinfoConfig.cmake.in
         "${CMAKE_CURRENT_BINARY_DIR}/lfreist-hwinfoConfig.cmake"
         @ONLY
 )
-install(FILES
-        "${CMAKE_CURRENT_BINARY_DIR}/lfreist-hwinfoConfig.cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/lfreist-hwinfoConfigVersion.cmake"
-        DESTINATION lib/cmake/hwinfo
-)
-install(EXPORT lfreist-hwinfoTargets
-        FILE lfreist-hwinfoTargets.cmake
-        NAMESPACE lfreist-hwinfo::
-        DESTINATION lib/cmake/hwinfo
-)
+#install(FILES
+#        "${CMAKE_CURRENT_BINARY_DIR}/lfreist-hwinfoConfig.cmake"
+#        "${CMAKE_CURRENT_BINARY_DIR}/lfreist-hwinfoConfigVersion.cmake"
+#        DESTINATION lib/cmake/hwinfo
+#)
+#install(EXPORT lfreist-hwinfoTargets
+#        FILE lfreist-hwinfoTargets.cmake
+#        NAMESPACE lfreist-hwinfo::
+#        DESTINATION lib/cmake/hwinfo
+#)
 
 if(BUILD_EXAMPLES OR BUILD_TESTING)
     add_subdirectory(examples)
