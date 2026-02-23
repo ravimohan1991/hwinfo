@@ -6,6 +6,9 @@
 #ifdef HWINFO_APPLE
 
 #include <hwinfo/ram.h>
+#include <mach/mach_host.h>
+#include <mach/mach_init.h>
+#include <mach/vm_statistics.h>
 #include <sys/sysctl.h>
 
 #include <string>
@@ -40,7 +43,28 @@ Memory::Memory() {
 
 // _____________________________________________________________________________________________________________________
 int64_t Memory::free_Bytes() const {
-  // TODO: implement
+  vm_statistics64_data_t vmStats;
+  mach_msg_type_number_t infoCount = HOST_VM_INFO64_COUNT;
+  kern_return_t kernReturn =
+      host_statistics64(mach_host_self(), HOST_VM_INFO64, reinterpret_cast<host_info64_t>(&vmStats), &infoCount);
+
+  if (kernReturn == KERN_SUCCESS) {
+    vm_size_t pageSize;
+    host_page_size(mach_host_self(), &pageSize);
+
+    int64_t totalMemory = getMemSize();
+    if (totalMemory == -1) return -1;
+
+    const int64_t appMemory =
+        static_cast<int64_t>(vmStats.internal_page_count - vmStats.purgeable_count) * static_cast<int64_t>(pageSize);
+    const int64_t wiredMemory = static_cast<int64_t>(vmStats.wire_count) * static_cast<int64_t>(pageSize);
+    const int64_t compressedMemory =
+        static_cast<int64_t>(vmStats.compressor_page_count) * static_cast<int64_t>(pageSize);
+
+    const int64_t usedMemory = appMemory + wiredMemory + compressedMemory;
+    return totalMemory - usedMemory;
+  }
+
   return -1;
 }
 

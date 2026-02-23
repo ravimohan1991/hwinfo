@@ -51,8 +51,8 @@ CPU, RAM, GPU, Disks, Mainboard, ...
 |                  | Name               |   ❌   |   ❌   |   ✔️    |
 |                  | Serial Number      |   ❌   |   ❌   |   ✔️    |
 |                  | Total Memory Size  |  ✔️   |  ✔️   |   ✔️    |
-|                  | Free Memory Size   |  ✔️   |   ❌   |   ✔️    |
-| Mainboard        | Vendor             |  ✔️   |   ❌   |   ✔️    |
+|                  | Free Memory Size   |  ✔️   |  ✔️   |   ✔️    |
+| Mainboard        | Vendor             |  ✔️   |  ✔️   |   ✔️    |
 |                  | Model              |  ✔️   |   ❌   |   ✔️    |
 |                  | Version            |  ✔️   |   ❌   |   ✔️    |
 |                  | Serial-Number      |   ❌   |  ✔️   |   ✔️    |

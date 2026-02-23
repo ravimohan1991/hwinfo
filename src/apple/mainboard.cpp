@@ -30,7 +30,8 @@ std::string get_mainboard_property(CFStringRef property_name) {
   }
 
   std::string result;
-  if (CFGetTypeID(propertyRef) == CFStringGetTypeID()) {
+
+  if (CFTypeID typeID = CFGetTypeID(propertyRef); typeID == CFStringGetTypeID()) {
     auto stringRef = static_cast<CFStringRef>(propertyRef);
     auto length = CFStringGetLength(stringRef);
     auto maxSize = CFStringGetMaximumSizeForEncoding(length, kCFStringEncodingUTF8) + 1;
@@ -38,6 +39,15 @@ std::string get_mainboard_property(CFStringRef property_name) {
     auto buffer = std::string(maxSize, '\0');
     if (CFStringGetCString(stringRef, buffer.data(), maxSize, kCFStringEncodingUTF8)) {
       result = buffer.c_str();  // Remove trailing nulls
+    }
+  } else if (typeID == CFDataGetTypeID()) {
+    const auto dataRef = static_cast<CFDataRef>(propertyRef);
+    const auto length = CFDataGetLength(dataRef);
+    const auto bytes = CFDataGetBytePtr(dataRef);
+    result = std::string(reinterpret_cast<const char*>(bytes), length);
+
+    if (!result.empty() && result.back() == '\0') {
+      result.pop_back();
     }
   }
 
@@ -47,7 +57,7 @@ std::string get_mainboard_property(CFStringRef property_name) {
 
 // _____________________________________________________________________________________________________________________
 MainBoard::MainBoard() {
-  _vendor = "<unknown>";
+  _vendor = get_mainboard_property(CFSTR("manufacturer"));
   _name = "<unknown>";
   _version = "<unknown>";
   _serialNumber = get_mainboard_property(CFSTR(kIOPlatformSerialNumberKey));
